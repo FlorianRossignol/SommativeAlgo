@@ -66,7 +66,7 @@ public class CellularAutomata : MonoBehaviour
 
             }
         }
-
+        
         public bool IsMainRoom
         {
             get => isMainRoom;
