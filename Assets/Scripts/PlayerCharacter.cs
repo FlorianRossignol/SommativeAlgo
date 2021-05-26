@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour
 {
+    private enum State
+    {
+        Idle,
+        Walk
+    }
+    [SerializeField] private Animator animator_;
     [SerializeField] private SpriteRenderer playerSprite;
 
     [SerializeField] private Rigidbody2D body;
