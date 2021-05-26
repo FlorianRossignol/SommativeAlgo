@@ -7,6 +7,7 @@ public class PlayerCharacter : MonoBehaviour
 {
     private enum State
     {
+        NONE,
         Idle,
         Walk
     }
@@ -16,24 +17,77 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] private Rigidbody2D body;
 
     private const float Speed = 5.0f;
-
-    private Vector2 movement;
+    private State currentState_;
+    private bool isFacingRight_ = false;
+    private float deadZone_ = 0.1f;
+    private Vector2 movement_;
     
     // Start is called before the first frame update
     void Start()
     {
         body.GetComponent<Rigidbody2D>();
+        currentState_ = State.Idle;
     }
 
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
+        movement_.x = Input.GetAxis("Horizontal");
+        movement_.y = Input.GetAxis("Vertical");
     }
 
     private void FixedUpdate()
     {
-        body.MovePosition(body.position + movement * Speed * Time.deltaTime);
+        body.MovePosition(body.position + movement_ * Speed * Time.deltaTime);
+
+        if (Input.GetAxis("Horizontal") > deadZone_ && isFacingRight_)
+        {
+            Flip();
+        }
+
+        if (Input.GetAxis("Horizontal") < -deadZone_ && !isFacingRight_)
+        {
+            Flip();
+        }
+
+        switch (currentState_)
+        {
+            case State.Idle:
+                if (Mathf.Abs(Input.GetAxis("Horizontal")) > deadZone_)
+                {
+                    ChangeState(State.Walk);
+                }
+                break;
+            case State.Walk:
+                if ((Input.GetAxis("Vertical") > -deadZone_ && Input.GetAxis("Vertical") < deadZone_)
+                    && Input.GetAxis("Horizontal") > -deadZone_ && Input.GetAxis("Horizontal")< deadZone_)
+                {
+                    ChangeState(State.Idle);
+                }
+                break;
+        }
+    }
+
+    private void Flip()
+    {
+        playerSprite.flipX = !playerSprite.flipX;
+        isFacingRight_ = !isFacingRight_;
+    }
+
+    private void ChangeState(State state)
+    {
+        switch (state)
+        {
+            case State.Idle:
+                animator_.Play("Idle1");
+                break;
+            case State.Walk:
+                animator_.Play("Walk");
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(state), state, null);  
+        }
+
+        currentState_ = state;
     }
 }
