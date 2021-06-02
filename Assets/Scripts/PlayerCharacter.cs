@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour
@@ -59,9 +60,10 @@ public class PlayerCharacter : MonoBehaviour
                     ChangeState(State.Walk);
                 }
 
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKey(KeyCode.Space))
                 {
                     ChangeState(State.Attack);
+                    break;
                 }
                 break;
             case State.Walk:
@@ -71,9 +73,10 @@ public class PlayerCharacter : MonoBehaviour
                     ChangeState(State.Idle);
                 }
 
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKey(KeyCode.Space))
                 {
                     ChangeState(State.Attack);
+                    break;
                 }
                 break;
             case State.Attack:
@@ -81,6 +84,7 @@ public class PlayerCharacter : MonoBehaviour
                 if (Mathf.Abs(Input.GetAxis("Horizontal")) > deadZone_)
                 {
                     ChangeState(State.Walk);
+                    break;
                 }
                 break;
         }
