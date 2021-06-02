@@ -97,6 +97,7 @@ public class CellularAutomata : MonoBehaviour
     void Start()
     {
         Init();
+        AddPhysicsBox();
     }
 
     protected virtual void Init()
@@ -290,6 +291,47 @@ public class CellularAutomata : MonoBehaviour
         {
             Vector2Int nextPos = tileA + step * i + gradientStep * (int)(ratio * i);
             DrawCircle(nextPos, passageRadius);
+        }
+    }
+
+    private void AddPhysicsBox()
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (cells[x, y].isAlive)
+                {
+                    continue;
+                }
+                bool aliveNeighbor = false;
+                for (int dx = -1; dx <= 1; dx++)
+                {
+                    for (int dy = -1; dy <= 1; dy++)
+                    {
+                        Vector2Int neighborPos = new Vector2Int(x + dx, y + dy);
+                        if (neighborPos.x < 0 || neighborPos.x >= width || neighborPos.y < 0 || neighborPos.y >= height)
+                        {
+                            continue;
+                        }
+                        if (cells[neighborPos.x,neighborPos.y].isAlive)
+                        {
+                            aliveNeighbor = true;
+                            break;
+                        }
+                    }
+
+                    if (aliveNeighbor)
+                    {
+                        break;
+                    }
+                }
+
+                if (aliveNeighbor)
+                {
+                    cellViews[x, y].gameObject.AddComponent<BoxCollider2D>();
+                }
+            }
         }
     }
 
