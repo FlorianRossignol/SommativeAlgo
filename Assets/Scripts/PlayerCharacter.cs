@@ -76,7 +76,6 @@ public class PlayerCharacter : MonoBehaviour
                 if (Input.GetKey(KeyCode.Space))
                 {
                     ChangeState(State.Attack);
-                    break;
                 }
                 break;
             case State.Attack:
@@ -84,7 +83,6 @@ public class PlayerCharacter : MonoBehaviour
                 if (Mathf.Abs(Input.GetAxis("Horizontal")) > deadZone_)
                 {
                     ChangeState(State.Walk);
-                    break;
                 }
                 break;
         }
