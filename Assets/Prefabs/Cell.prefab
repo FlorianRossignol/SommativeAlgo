@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6017075833330940132}
   - component: {fileID: 7033653262345660671}
-  - component: {fileID: 7840672888220380278}
+  - component: {fileID: -8116047832805010571}
   m_Layer: 0
   m_Name: Cell
   m_TagString: Untagged
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2028620045834997336, guid: b765277b75f5a944480dd7c89f416430, type: 3}
+  m_Sprite: {fileID: -9000362276992120081, guid: 340b023115022f24abb71d52dd484a17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7840672888220380278
+--- !u!114 &-8116047832805010571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,4 +95,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e55648b8a4559114a86cd89202e3b745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 7033653262345660671}
+  spriteRenderer_: {fileID: 7033653262345660671}
+  sprites_:
+  - {fileID: -8120323925528636241, guid: 340b023115022f24abb71d52dd484a17, type: 3}
+  - {fileID: 8938356945095094423, guid: 340b023115022f24abb71d52dd484a17, type: 3}
+  - {fileID: 2818063909598327431, guid: 340b023115022f24abb71d52dd484a17, type: 3}
+  - {fileID: -778764822399169897, guid: 340b023115022f24abb71d52dd484a17, type: 3}
+  - {fileID: -7606234629451901924, guid: 340b023115022f24abb71d52dd484a17, type: 3}
+  - {fileID: -7657094741939605724, guid: 340b023115022f24abb71d52dd484a17, type: 3}
+  - {fileID: -9000362276992120081, guid: 340b023115022f24abb71d52dd484a17, type: 3}
+  - {fileID: -3317108722525156635, guid: 340b023115022f24abb71d52dd484a17, type: 3}
+  - {fileID: -5052320489504722407, guid: 340b023115022f24abb71d52dd484a17, type: 3}
+  - {fileID: 1114646796741094055, guid: 340b023115022f24abb71d52dd484a17, type: 3}
+  - {fileID: -9048192641222686197, guid: 340b023115022f24abb71d52dd484a17, type: 3}
+  - {fileID: 5211745164843661978, guid: 340b023115022f24abb71d52dd484a17, type: 3}

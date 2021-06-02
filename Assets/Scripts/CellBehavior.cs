@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 public struct Cell
 {
@@ -11,10 +13,16 @@ public struct Cell
 }
 public class CellBehavior : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer spriteRenderer_;
+    [SerializeField] private Sprite[] sprites_;
+    
     private bool isAlive = true;
 
-
+    private void Start()
+    {
+        spriteRenderer_.sprite = sprites_[Random.Range(0, sprites_.Length)];
+    }
+    
     public bool IsAlive
     {
         get => isAlive;
@@ -27,6 +35,8 @@ public class CellBehavior : MonoBehaviour
 
     public void UpdateColor(Color color)
     {
-        spriteRenderer.color = color;
+        spriteRenderer_.color = color;
     }
+
+    
 }

@@ -413,8 +413,6 @@ public class CellularAutomata : MonoBehaviour
         void FillRegion(int x, int y)
         {
             Region region = new Region();
-            Color color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
-            region.Color = color;
             Vector2Int pos = new Vector2Int(x, y);
             Vector2Int[] dpos = new Vector2Int[4]
             {
@@ -430,7 +428,6 @@ public class CellularAutomata : MonoBehaviour
                 Vector2Int currentPos = nextPosQueue.Dequeue();
 
                 visited[currentPos.x, currentPos.y] = true;
-                cellViews[currentPos.x, currentPos.y].UpdateColor(color);
                 region.AddTile(currentPos);
                 foreach (var delta in dpos)
                 {

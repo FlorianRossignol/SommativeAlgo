@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa50a78848eefb469263eacf1372531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellBehaviorPrefab: {fileID: 7840672888220380278, guid: 33c79b7f920de7d4ea702f0dbc7112d4, type: 3}
+  cellBehaviorPrefab: {fileID: -8116047832805010571, guid: 33c79b7f920de7d4ea702f0dbc7112d4, type: 3}
   width: 50
   height: 50
   aliveToDeathConversion: 4
