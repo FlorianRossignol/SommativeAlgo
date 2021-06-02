@@ -159,7 +159,7 @@ MonoBehaviour:
   deathToAliveConversion: 4
   roomSurvivalThreshold: 9
   showcase: 0
-  seed: 3
+  seed: 0
   randomFillFactor: 0.5
   passageRadius: 1
 --- !u!4 &627724744
