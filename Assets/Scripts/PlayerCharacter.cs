@@ -9,7 +9,8 @@ public class PlayerCharacter : MonoBehaviour
     {
         NONE,
         Idle,
-        Walk
+        Walk,
+        Attack
     }
     [SerializeField] private Animator animator_;
     [SerializeField] private SpriteRenderer playerSprite;
@@ -57,12 +58,29 @@ public class PlayerCharacter : MonoBehaviour
                 {
                     ChangeState(State.Walk);
                 }
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    ChangeState(State.Attack);
+                }
                 break;
             case State.Walk:
                 if ((Input.GetAxis("Vertical") > -deadZone_ && Input.GetAxis("Vertical") < deadZone_)
                     && Input.GetAxis("Horizontal") > -deadZone_ && Input.GetAxis("Horizontal")< deadZone_)
                 {
                     ChangeState(State.Idle);
+                }
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    ChangeState(State.Attack);
+                }
+                break;
+            case State.Attack:
+                
+                if (Mathf.Abs(Input.GetAxis("Horizontal")) > deadZone_)
+                {
+                    ChangeState(State.Walk);
                 }
                 break;
         }
@@ -83,6 +101,9 @@ public class PlayerCharacter : MonoBehaviour
                 break;
             case State.Walk:
                 animator_.Play("Walk");
+                break;
+            case State.Attack:
+                animator_.Play("Attack");
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);  
