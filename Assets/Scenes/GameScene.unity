@@ -235,9 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa50a78848eefb469263eacf1372531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellBehaviorPrefab: {fileID: -2967474149559104571, guid: d3614ad0331c7334e85701b4518bedec, type: 3}
-  width: 100
-  height: 100
+  cellBehaviorPrefab: {fileID: 7840672888220380278, guid: 33c79b7f920de7d4ea702f0dbc7112d4, type: 3}
+  width: 50
+  height: 50
   aliveToDeathConversion: 4
   deathToAliveConversion: 4
   roomSurvivalThreshold: 9

@@ -96,6 +96,7 @@ public class CellularAutomata : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        seed = Random.seed;
         Init();
         AddPhysicsBox();
     }
