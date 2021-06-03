@@ -2,8 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+using UnityEngine.WSA;
 using Random = UnityEngine.Random;
 
 public class CellularAutomata : MonoBehaviour
@@ -99,6 +103,7 @@ public class CellularAutomata : MonoBehaviour
         seed = Random.seed;
         Init();
         AddPhysicsBox();
+        StartRoom();
     }
 
     protected virtual void Init()
@@ -479,5 +484,21 @@ public class CellularAutomata : MonoBehaviour
             }
         }
         return aliveNeighborCount;
+    }
+
+    [FormerlySerializedAs("playerprefab_")] [SerializeField] private GameObject playerPrefab_;
+    private void StartRoom()
+    {
+        var regionStart = regions_[Random.Range(0, regions_.Count)];
+        var startingTiles = regionStart.Tiles[Random.Range(0, regionStart.Count)];
+        Vector3 position = new Vector3((startingTiles.x - width / 2) * cellSize, (startingTiles.y - height / 2)
+            * cellSize, 0.0f);
+        var player = Instantiate(playerPrefab_,position,
+            quaternion.identity,transform);
+    }
+
+    private void MapScale()
+    {
+        
     }
 }

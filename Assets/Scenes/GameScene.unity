@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 1333019682}
   - component: {fileID: 1333019681}
   - component: {fileID: 1333019680}
+  - component: {fileID: 1333019683}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -206,6 +207,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1333019683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333019679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697ad6ab9246f9547a800e12215c32bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_: {fileID: 107690087760036798, guid: 56f9c278f0c8aa4479174cd8ee6522f1, type: 3}
 --- !u!1 &2043194037
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa50a78848eefb469263eacf1372531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellBehaviorPrefab: {fileID: 7840672888220380278, guid: 33c79b7f920de7d4ea702f0dbc7112d4, type: 3}
+  cellBehaviorPrefab: {fileID: -8116047832805010571, guid: 33c79b7f920de7d4ea702f0dbc7112d4, type: 3}
   width: 50
   height: 50
   aliveToDeathConversion: 4
@@ -245,6 +259,7 @@ MonoBehaviour:
   seed: 0
   randomFillFactor: 0.5
   passageRadius: 1
+  playerprefab_: {fileID: 4319120346781878530, guid: 56f9c278f0c8aa4479174cd8ee6522f1, type: 3}
 --- !u!4 &2043194039
 Transform:
   m_ObjectHideFlags: 0
