@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator_: {fileID: -2940546529313190625}
-  playerSprite: {fileID: 647485794460247142}
+  playerSprite: {fileID: 107690087760036798}
   body: {fileID: -7849092629569656085}
 --- !u!95 &-2940546529313190625
 Animator:

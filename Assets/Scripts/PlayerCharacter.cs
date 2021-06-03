@@ -14,7 +14,7 @@ public class PlayerCharacter : MonoBehaviour
         Attack
     }
     [SerializeField] private Animator animator_;
-    [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private Transform playerSprite;
 
     [SerializeField] private Rigidbody2D body;
 
@@ -95,7 +95,9 @@ public class PlayerCharacter : MonoBehaviour
 
     private void Flip()
     {
-        playerSprite.flipX = !playerSprite.flipX;
+        Vector3 newScale = playerSprite.transform.localScale;
+        newScale.x *= -1;
+        playerSprite.transform.localScale = newScale;
         isFacingRight_ = !isFacingRight_;
     }
 
