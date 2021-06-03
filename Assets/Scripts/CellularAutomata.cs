@@ -21,7 +21,7 @@ public class CellularAutomata : MonoBehaviour
 
     [SerializeField] protected int width = 0;
     [SerializeField] protected int height = 0;
-    private const float cellSize = 0.1f;
+    private const float cellSize = 1.0f;
     [SerializeField] private int aliveToDeathConversion = 4;
     [SerializeField] private int deathToAliveConversion = 4;
     [SerializeField] private int roomSurvivalThreshold = 9;
@@ -495,10 +495,6 @@ public class CellularAutomata : MonoBehaviour
             * cellSize, 0.0f);
         var player = Instantiate(playerPrefab_,position,
             quaternion.identity,transform);
-    }
-
-    private void MapScale()
-    {
-        
+        Camera.main.GetComponent<FollowCamera>().Player = player.transform;
     }
 }

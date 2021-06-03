@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    [SerializeField] private Transform player_;
+    private Transform player_;
     private Vector3 offset_;
     private const float zposition_ = -10.0f;
     private Transform camTransform;
+
+    public Transform Player
+    {
+        get => player_;
+        set => player_ = value;
+    }
     void Start()
     {
         camTransform = transform;
