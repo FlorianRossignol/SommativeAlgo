@@ -59,6 +59,11 @@ public class PlayerCharacter : MonoBehaviour
                 {
                     ChangeState(State.Walk);
                 }
+                
+                if (Mathf.Abs(Input.GetAxis("Vertical")) > deadZone_)
+                {
+                    ChangeState(State.Walk);
+                }
 
                 if (Input.GetKey(KeyCode.Space))
                 {
