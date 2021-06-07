@@ -11,15 +11,12 @@ public class SlimeBehaviour : MonoBehaviour
     private bool followingPlayer_ = false;
     [SerializeField] private float moveSpeed_ = 5.0f;
     [SerializeField] private GameObject player_;
-
+    [SerializeField] private float healPoints = 8.0f;
+    
     // Update is called once per frame
     void Update()
     {
-        if (isAlive_ == false)
-        {
-            Destroy(gameObject);
-        }
-
+        CalculateDamage();
         if (followingPlayer_ == true)
         {
             Chase();
@@ -47,6 +44,24 @@ public class SlimeBehaviour : MonoBehaviour
         {
             Debug.Log("Stopped following Player and moving randomly!");
             followingPlayer_ = false;
+        }
+    }
+
+    private void Death()
+    {
+        if (isAlive_== false)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void CalculateDamage()
+    {
+        PlayerAttack playerAttack = GetComponent<PlayerAttack>();
+        healPoints = playerAttack.AttackDamage - healPoints;
+        if (healPoints <= 0)
+        {
+            Death();
         }
     }
 }
