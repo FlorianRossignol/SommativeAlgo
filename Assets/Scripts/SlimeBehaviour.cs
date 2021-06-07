@@ -58,7 +58,7 @@ public class SlimeBehaviour : MonoBehaviour
     private void CalculateDamage()
     {
         PlayerAttack playerAttack = GetComponent<PlayerAttack>();
-        healPoints = playerAttack.AttackDamage - healPoints;
+        healPoints = healPoints - playerAttack.AttackDamage;
         if (healPoints <= 0)
         {
             Death();
