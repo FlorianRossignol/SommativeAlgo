@@ -99,6 +99,7 @@ public class CellularAutomata : MonoBehaviour
         seed = Random.seed;
         Init();
         AddPhysicsBox();
+        AddWalls();
     }
 
     protected virtual void Init()
@@ -331,6 +332,20 @@ public class CellularAutomata : MonoBehaviour
                 if (aliveNeighbor)
                 {
                     cellViews[x, y].gameObject.AddComponent<BoxCollider2D>();
+                }
+            }
+        }
+    }
+    
+    private void AddWalls()
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (cells[x, y].isAlive)
+                {
+                    continue;
                 }
             }
         }
