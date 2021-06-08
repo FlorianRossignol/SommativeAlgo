@@ -12,9 +12,11 @@ public class SlimeBehaviour : MonoBehaviour
     [SerializeField] private float moveSpeed_ = 5.0f;
     [SerializeField] private GameObject player_;
     [SerializeField] private float healPoints = 8.0f;
+    private Rigidbody2D rigidBody;
 
     private void Start()
     {
+        rigidBody = GetComponent<Rigidbody2D>();
         player_ = GameObject.FindWithTag("Player");
     }
 
@@ -29,8 +31,7 @@ public class SlimeBehaviour : MonoBehaviour
 
     private void Chase()
     {
-        transform.position =
-            Vector2.MoveTowards(transform.position, player_.transform.position, moveSpeed_ * Time.deltaTime);
+        rigidBody.velocity = (player_.transform.position - transform.position).normalized * moveSpeed_;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
