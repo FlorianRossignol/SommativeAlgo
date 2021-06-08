@@ -7,7 +7,6 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
-using UnityEngine.WSA;
 using Random = UnityEngine.Random;
 
 public class CellularAutomata : MonoBehaviour
