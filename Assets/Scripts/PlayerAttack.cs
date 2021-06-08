@@ -31,5 +31,10 @@ public class PlayerAttack : MonoBehaviour
             other.GetComponent<SlimeBehaviour>().CalculateDamage(AttackDamage);
             asattack = true;
         }
+        else if(other.CompareTag("Skeleton") && asattack == false)
+        {
+            other.GetComponent<SkeletonBehaviour>().CalculateDamage(AttackDamage);
+            asattack = true;
+        }
     }
 }

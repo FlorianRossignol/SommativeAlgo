@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7741828852255788933}
   - component: {fileID: 4895074155647536084}
   - component: {fileID: 32479648269819745}
+  - component: {fileID: 5222846495589326697}
   m_Layer: 0
   m_Name: BlueSlime
   m_TagString: Slime
@@ -119,7 +120,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.875, y: 0.6875}
+    oldSize: {x: 0.56, y: 0.44}
     newSize: {x: 0.875, y: 0.6875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -136,19 +137,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7499805323550479459}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!114 &32479648269819745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,4 +164,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed_: 2
   player_: {fileID: 4319120346781878530, guid: 56f9c278f0c8aa4479174cd8ee6522f1, type: 3}
-  healPoints: 8
+  healPoints: 4
+--- !u!95 &5222846495589326697
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7499805323550479459}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad0f2b480a53d2847a86687fc4cec4a5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

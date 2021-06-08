@@ -4,16 +4,28 @@ using System.Collections.Generic;
 using UnityEditor.VersionControl;
 using UnityEngine;
 
-public class SlimeBehaviour : MonoBehaviour
+public class SkeletonBehaviour : MonoBehaviour
 {
+    private enum State
+    {
+        NONE,
+        Idle,
+        Walk,
+        Dead
+    }
+    
     private bool followingPlayer_ = false;
+    private State currentState_;
+    private Animator animator_;
+    private GameObject player_;
     [SerializeField] private float moveSpeed_ = 5.0f;
-    [SerializeField] private GameObject player_;
     [SerializeField] private float healPoints = 8.0f;
+    
 
     private void Start()
     {
         player_ = GameObject.FindWithTag("Player");
+        animator_ = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,7 +37,37 @@ public class SlimeBehaviour : MonoBehaviour
         }
     }
 
-    private void Chase()
+    private void FixedUpdate()
+    {
+        switch (currentState_)
+        {
+            case State.Idle:
+                if (followingPlayer_ == true)
+                {
+                    ChangeState(State.Walk);
+                }
+
+                if (healPoints <= 0)
+                {
+                    ChangeState(State.Dead);
+                }
+                break;
+            case State.Walk:
+                if (!followingPlayer_ == true)
+                {
+                    ChangeState(State.Idle);
+                }
+                
+                if (healPoints <= 0)
+                {
+                    ChangeState(State.Dead);
+                }
+
+                break;
+        }
+    }
+
+        private void Chase()
     {
         transform.position =
             Vector2.MoveTowards(transform.position, player_.transform.position, moveSpeed_ * Time.deltaTime);
@@ -66,15 +108,31 @@ public class SlimeBehaviour : MonoBehaviour
             followingPlayer_ = true;
         }
     }
-
-
+    
     public void CalculateDamage(float damage)
     {
         healPoints = healPoints - damage;
-        if (healPoints <= 0)
-        {
-            Destroy(gameObject);
-        }
+        animator_.Play("Hit");
     }
     
+    private void ChangeState(State state)
+    {
+        switch (state)
+        {
+            case State.Idle:
+                animator_.Play("Idle");
+                break;
+            case State.Walk:
+                animator_.Play("Walk");
+                break;
+            case State.Dead:
+                animator_.Play("Death");
+                Destroy(gameObject);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(state), state, null);  
+        }
+
+        currentState_ = state;
+    }
 }
