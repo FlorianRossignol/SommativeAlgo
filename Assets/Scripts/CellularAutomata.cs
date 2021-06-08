@@ -487,6 +487,7 @@ public class CellularAutomata : MonoBehaviour
     }
 
     [FormerlySerializedAs("playerprefab_")] [SerializeField] private GameObject playerPrefab_;
+    private GameObject playerRef;
     private void StartRoom()
     {
         var regionStart = regions_[Random.Range(0, regions_.Count)];
@@ -495,10 +496,12 @@ public class CellularAutomata : MonoBehaviour
             * cellSize, 0.0f);
         var player = Instantiate(playerPrefab_,position,
             Quaternion.identity,transform);
+        playerRef = player;
         Camera.main.GetComponent<FollowCamera>().Player = player.transform;
     }
 
     [SerializeField] private GameObject objectifPrefab_;
+    [SerializeField] private float compareDistance = 10.0f;
     private float sphereRadius;
     private void SpawnObjectif()
     {
@@ -511,5 +514,7 @@ public class CellularAutomata : MonoBehaviour
         {
             objectif = Instantiate(objectifPrefab_, position, Quaternion.identity, transform);
         }
+        
+        objectif = Instantiate(objectifPrefab_, position, Quaternion.identity, transform);
     }
 }
