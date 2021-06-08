@@ -29,8 +29,10 @@ public class PlayerAttack : MonoBehaviour
         if (other.CompareTag("Slime") && asattack == false)
         {
             other.GetComponent<SlimeBehaviour>().CalculateDamage(AttackDamage);
+            asattack = true;
+            Debug.Log("iftriggerpass");
         }
-
-        asattack = true;
+        
+        Debug.Log("triggerpass");
     }
 }
