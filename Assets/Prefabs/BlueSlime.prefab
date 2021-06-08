@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 7086287932117018057, guid: ceaf26c63b6984b49b54268b81cb8e00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -161,6 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd604e28e440d124193647e7bb5ae455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed_: 5
-  player_: {fileID: 0}
+  moveSpeed_: 2
+  player_: {fileID: 4319120346781878530, guid: 56f9c278f0c8aa4479174cd8ee6522f1, type: 3}
   healPoints: 8

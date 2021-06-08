@@ -12,7 +12,12 @@ public class SlimeBehaviour : MonoBehaviour
     [SerializeField] private float moveSpeed_ = 5.0f;
     [SerializeField] private GameObject player_;
     [SerializeField] private float healPoints = 8.0f;
-    
+
+    private void Start()
+    {
+        player_ = GameObject.FindWithTag("Player");
+    }
+
     // Update is called once per frame
     void Update()
     {

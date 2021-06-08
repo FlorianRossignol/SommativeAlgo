@@ -105,6 +105,10 @@ public class CellularAutomata : MonoBehaviour
         AddPhysicsBox();
         StartRoom();
         SpawnObjectif();
+        for (int i = 0; i < 10; i++)
+        {
+            SpawnEnemy();
+        }
     }
 
     protected virtual void Init()
@@ -516,5 +520,21 @@ public class CellularAutomata : MonoBehaviour
                                                                              * cellSize, 0.0f);
         }
         var objectif = Instantiate(objectifPrefab_, position, quaternion.identity, transform);
+    }
+
+    [SerializeField] private List<GameObject> enemis;
+    [SerializeField] private float distanceEnem = 2.0f;
+    private void SpawnEnemy()
+    {
+        Vector3 position = playerRef.transform.position;
+        while (Vector2.Distance(position,playerRef.transform.position) < distanceEnem)
+        {
+            var cell = regions_[Random.Range(0, regions_.Count)];
+            var cellTiles = cell.Tiles[Random.Range(0, cell.Count)];
+             position = new Vector3((cellTiles.x - width / 2) * cellSize, (cellTiles.y - height / 2)
+                                                                             * cellSize, 0.0f);
+        }
+        var enemisRand = enemis[Random.Range(0, enemis.Count)];
+        var waypoint = Instantiate(enemisRand, position, quaternion.identity, transform);
     }
 }
