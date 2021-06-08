@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -341,20 +340,6 @@ public class CellularAutomata : MonoBehaviour
             }
         }
     }
-    
-    private void AddWalls()
-    {
-        for (int x = 0; x < width; x++)
-        {
-            for (int y = 0; y < height; y++)
-            {
-                if (cells[x, y].isAlive)
-                {
-                    continue;
-                }
-            }
-        }
-    }
 
     void DrawCircle(Vector2Int pos, int radius)
     {
@@ -509,7 +494,7 @@ public class CellularAutomata : MonoBehaviour
         Vector3 position = new Vector3((startingTiles.x - width / 2) * cellSize, (startingTiles.y - height / 2)
             * cellSize, 0.0f);
         var player = Instantiate(playerPrefab_,position,
-            quaternion.identity,transform);
+            Quaternion.identity,transform);
         Camera.main.GetComponent<FollowCamera>().Player = player.transform;
     }
 
@@ -524,7 +509,7 @@ public class CellularAutomata : MonoBehaviour
         var objectif = Instantiate(objectifPrefab_, position, Quaternion.identity, transform);
         if (objectif.GetInstanceID() == playerPrefab_.GetInstanceID())
         {
-            objectif = Instantiate(objectifPrefab_, position, quaternion.identity, transform);
+            objectif = Instantiate(objectifPrefab_, position, Quaternion.identity, transform);
         }
     }
 }

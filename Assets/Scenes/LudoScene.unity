@@ -162,6 +162,8 @@ MonoBehaviour:
   seed: 0
   randomFillFactor: 0.5
   passageRadius: 1
+  playerPrefab_: {fileID: 4319120346781878530, guid: 56f9c278f0c8aa4479174cd8ee6522f1, type: 3}
+  objectifPrefab_: {fileID: 7704874552280173373, guid: 046bf270d32fab64c882f118501d6b91, type: 3}
 --- !u!4 &627724744
 Transform:
   m_ObjectHideFlags: 0
