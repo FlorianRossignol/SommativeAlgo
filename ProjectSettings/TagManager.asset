@@ -7,6 +7,7 @@ TagManager:
   - Slime
   - Objectif
   - Attack
+  - Skeleton
   layers:
   - Default
   - TransparentFX
