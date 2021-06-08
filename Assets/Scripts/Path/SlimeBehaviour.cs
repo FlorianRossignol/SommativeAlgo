@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class SlimeBehaviour : MonoBehaviour
 {
-
-    private bool isAlive_ = true;
     private bool followingPlayer_ = false;
     [SerializeField] private float moveSpeed_ = 5.0f;
     [SerializeField] private GameObject player_;
@@ -51,8 +49,25 @@ public class SlimeBehaviour : MonoBehaviour
             followingPlayer_ = false;
         }
     }
+    
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Bumped into player!");
+            followingPlayer_ = false;
+        }
+    }
+    
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Exited collision with player and resumes chasing!");
+            followingPlayer_ = true;
+        }
+    }
 
-  
 
     public void CalculateDamage(float damage)
     {
