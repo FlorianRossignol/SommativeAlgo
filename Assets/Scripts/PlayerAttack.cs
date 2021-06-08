@@ -30,9 +30,6 @@ public class PlayerAttack : MonoBehaviour
         {
             other.GetComponent<SlimeBehaviour>().CalculateDamage(AttackDamage);
             asattack = true;
-            Debug.Log("iftriggerpass");
         }
-        
-        Debug.Log("triggerpass");
     }
 }

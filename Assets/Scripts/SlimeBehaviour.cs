@@ -55,7 +55,6 @@ public class SlimeBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        Debug.Log("calculate damage pass");
     }
     
 }

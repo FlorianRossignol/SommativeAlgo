@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -500,21 +501,20 @@ public class CellularAutomata : MonoBehaviour
         Camera.main.GetComponent<FollowCamera>().Player = player.transform;
     }
 
+   
     [SerializeField] private GameObject objectifPrefab_;
     [SerializeField] private float compareDistance = 10.0f;
     private float sphereRadius;
     private void SpawnObjectif()
     {
-        var regionStart_ = regions_[Random.Range(0, regions_.Count)];
-        var startingTiles = regionStart_.Tiles[Random.Range(0, regionStart_.Count)];
-        Vector3 position = new Vector3((startingTiles.x - width / 2) * cellSize, (startingTiles.y - height / 2)
-            * cellSize, 0.0f);
-        var objectif = Instantiate(objectifPrefab_, position, Quaternion.identity, transform);
-        if (objectif.GetInstanceID() == playerPrefab_.GetInstanceID())
+        Vector3 position = playerRef.transform.position;
+        while (Vector2.Distance(position,playerRef.transform.position) < compareDistance)
         {
-            objectif = Instantiate(objectifPrefab_, position, Quaternion.identity, transform);
+            var regionStart_ = regions_[Random.Range(0, regions_.Count)];
+            var startingTiles = regionStart_.Tiles[Random.Range(0, regionStart_.Count)];
+            position = new Vector3((startingTiles.x - width / 2) * cellSize, (startingTiles.y - height / 2)
+                                                                             * cellSize, 0.0f);
         }
-        
-        objectif = Instantiate(objectifPrefab_, position, Quaternion.identity, transform);
+        var objectif = Instantiate(objectifPrefab_, position, quaternion.identity, transform);
     }
 }
