@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private float attackDamage = 2.0f;
-
+    private bool asattack = false;
     public float AttackDamage
     {
         get => attackDamage;
@@ -20,7 +21,16 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        asattack = false;
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Slime") && asattack == false)
+        {
+            other.GetComponent<SlimeBehaviour>().CalculateDamage(AttackDamage);
+        }
+
+        asattack = true;
+    }
 }

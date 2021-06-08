@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Slime
   - Objectif
+  - Attack
   layers:
   - Default
   - TransparentFX
