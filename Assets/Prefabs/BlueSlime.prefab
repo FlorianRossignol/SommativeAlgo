@@ -161,3 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd604e28e440d124193647e7bb5ae455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed_: 5
+  player_: {fileID: 0}
+  healPoints: 8

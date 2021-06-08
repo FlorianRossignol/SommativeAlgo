@@ -244,6 +244,10 @@ PrefabInstance:
       propertyPath: moveSpeed_
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 32479648269819745, guid: ccc88575c308eff4b8ae1aaa213c8e39, type: 3}
+      propertyPath: healPoints
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6420297519900717949, guid: ccc88575c308eff4b8ae1aaa213c8e39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.9570515
@@ -356,6 +360,14 @@ PrefabInstance:
     - target: {fileID: 3433185310865458362, guid: 56f9c278f0c8aa4479174cd8ee6522f1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597913105110008763, guid: 56f9c278f0c8aa4479174cd8ee6522f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597913105110008763, guid: 56f9c278f0c8aa4479174cd8ee6522f1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 4319120346781878530, guid: 56f9c278f0c8aa4479174cd8ee6522f1, type: 3}
       propertyPath: m_Name

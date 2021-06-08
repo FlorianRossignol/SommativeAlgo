@@ -16,7 +16,6 @@ public class SlimeBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CalculateDamage();
         if (followingPlayer_ == true)
         {
             Chase();
@@ -47,21 +46,16 @@ public class SlimeBehaviour : MonoBehaviour
         }
     }
 
-    private void Death()
+  
+
+    public void CalculateDamage(float damage)
     {
-        if (isAlive_== false)
+        healPoints = healPoints - damage;
+        if (healPoints <= 0)
         {
             Destroy(gameObject);
         }
+        
     }
-
-    private void CalculateDamage()
-    {
-        PlayerAttack playerAttack = GetComponent<PlayerAttack>();
-        healPoints = healPoints - playerAttack.AttackDamage;
-        if (healPoints <= 0)
-        {
-            Death();
-        }
-    }
+    
 }
