@@ -15,7 +15,8 @@ public class PlayerCharacter : MonoBehaviour
     }
     [SerializeField] private Animator animator_;
     [SerializeField] private Transform playerSprite;
-
+    [SerializeField] private AudioClip walkFx;
+    [SerializeField] private AudioClip attackFx;
     [SerializeField] private Rigidbody2D body;
 
     private const float Speed = 5.0f;
