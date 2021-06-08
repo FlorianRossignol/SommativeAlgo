@@ -20,12 +20,14 @@ public class SkeletonBehaviour : MonoBehaviour
     private GameObject player_;
     [SerializeField] private float moveSpeed_ = 5.0f;
     [SerializeField] private float healPoints = 8.0f;
+    private Rigidbody2D rigidBody;
     
 
     private void Start()
     {
         player_ = GameObject.FindWithTag("Player");
         animator_ = gameObject.GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -67,10 +69,9 @@ public class SkeletonBehaviour : MonoBehaviour
         }
     }
 
-        private void Chase()
+    private void Chase()
     {
-        transform.position =
-            Vector2.MoveTowards(transform.position, player_.transform.position, moveSpeed_ * Time.deltaTime);
+        rigidBody.velocity = (player_.transform.position - transform.position).normalized * moveSpeed_;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -113,6 +114,11 @@ public class SkeletonBehaviour : MonoBehaviour
     {
         healPoints = healPoints - damage;
         animator_.Play("Hit");
+        if (healPoints <= 0)
+        {
+            Destroy(gameObject);
+        }
+        
     }
     
     private void ChangeState(State state)
@@ -127,7 +133,6 @@ public class SkeletonBehaviour : MonoBehaviour
                 break;
             case State.Dead:
                 animator_.Play("Death");
-                Destroy(gameObject);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);  
